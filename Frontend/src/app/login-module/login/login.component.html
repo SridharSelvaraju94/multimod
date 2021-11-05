@@ -1,0 +1,125 @@
+<div class="login-page loginBody">
+    <div class="row">
+        <div class="map-container col-xs-12">
+            <div class="col-md-12 p-l-r-0 map-pt">
+                <div class="">
+                    <div class="login-box" style="height:500px;">
+                        <div class="login-part">
+                            <form class="form-signin lb-form" (ngSubmit)="login(loginForm)" [formGroup]="loginForm" novalidate>
+                                <h4>Login to your account</h4>
+                                <div class="row ta-center">
+                                    <div class="col-md-12" *ngIf="errMsg">
+                                        <span class="alert alert-danger" id="error">{{errMsg}}</span>
+                                    </div>
+                                    <div class="col-md-12" *ngIf="successMsg">
+                                        <span class="alert alert-success" id="Success">{{successMsg}}</span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+											<i class="fa fa-user" aria-hidden="true"></i>
+										</span>
+                                        <input type="text" id="name" class="form-control input-sm" placeholder="Email address" name="username" formControlName="username" (blur)="validateEmail()" (focus)="addHighlighter('name')" (focusout)="removeHighligther('name')">
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="username.invalid && username.touched">
+                                        <!-- <div *ngIf="username.hasError('userExists')">{{username.errors.userExists}}</div> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+											<i class="fa fa-key" aria-hidden="true"></i>
+										</span>
+                                        <input type="password" id="password" class="form-control input-sm" name="password" formControlName="password" placeholder="Password" (focus)="addHighlighter('password')" (focusout)="removeHighligther('password')">
+                                    </div>
+                                    <div [hidden]="password.valid || password.pristine && (password.dirty || password.untouched) " class="alert alert-danger">
+                                        <div [hidden]="!password.hasError('required')">Password is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span>
+											<input type="checkbox" id="rememberMe" formControlName="rememberMe" name="rememberMe">
+											<label for="rememberMe"> remember me</label>
+										</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-right">
+                                        <span class="form-signin-forgot-password pull-left">
+											<a href="javascript:void(0);" class="forget-btn" (click)="forgotPassword()">Forgot Password?</a>
+										</span>
+                                        <button class="btn btn-sm btn-success login-btn" type="submit" [disabled]="!loginForm.valid">
+											Sign In
+										</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="loading">
+                                            <div class="spinner">
+                                                <div class="mask">
+                                                    <div class="maskedCircle"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="forget-part">
+                            <form class="form-signin lb-form" (ngSubmit)="forgetPasswordSubmit(forgetForm)" [formGroup]="forgetForm" novalidate>
+                                <h4>Forget Password</h4>
+                                <div class="row ta-center">
+                                    <div class="col-md-12" *ngIf="errMsg">
+                                        <span class="alert alert-danger" id="Error">{{errMsg}}</span>
+                                    </div>
+                                    <div class="col-md-12" *ngIf="successMsg">
+                                        <span class="alert alert-success" id="Success">{{successMsg}}</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+											<i class="fa fa-user" aria-hidden="true"></i>
+										</span>
+                                        <input type="text" id="email" class="form-control input-sm" placeholder="Email address" name="username" formControlName="username" (blur)="validateEmail()" (focus)="addHighlighter('email')" (focusout)="removeHighligther('email')">
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="username.invalid && username.touched">
+                                        <!-- <div *ngIf="username.hasError('userExists')">{{username.errors.userExists}}</div> -->
+                                    </div>
+                                </div>
+                                <p>Please enter Email ID to get temporary password</p>
+                                <div class="row">
+                                    <div class="pull-left">
+                                        <button class="btn btn-sm btn-outline-danger" type="button" (click)="cancel()">
+											Cancel
+										</button>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <button class="btn btn-sm btn-success" type="submit" [disabled]="!forgetForm.valid">
+											Submit
+										</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- login box ends -->
+
+                </div>
+            </div>
+            <!-- <div class="col-md-4">
+                <div id="google-map" style="width:100%;"></div>
+                <div class="outer-box-content">
+                    <div class="overlay-blue">
+                        <div class="text-center lheading">
+                            <img src="assets/images/synapt_service_manager_full_width.png" width="300" />
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- row ends -->
+</div>

@@ -1,0 +1,7 @@
+dependencies {
+    implementation 'org.springframework:spring-context'
+    implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+    implementation group: 'org.springframework', name: 'spring-context', version: '5.3.9'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+}

@@ -1,0 +1,6 @@
+rootProject.name = 'MultiMod'
+include 'common'
+include 'security'
+include 'repo'
+include 'Web'
+
